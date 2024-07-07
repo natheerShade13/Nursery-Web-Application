@@ -2,6 +2,7 @@ package za.ac.cput.domain;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,9 +18,12 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "CATEGORY_ID")
     private Category category;
-
-    //@OneToMany(mappedBy = "product", cascade = CascadeType.PERSIST)
-    //private List<SupplierProduct> supplierProducts;
+    @OneToMany(mappedBy = "product")
+    private List<OrderLine> orderLines;
+    @OneToMany(mappedBy = "product" /*, cascade = CascadeType.PERSIST*/)
+    private List<SupplierProduct> supplierProducts;
+    @OneToMany(mappedBy = "product")
+    private List<Review> reviews;
 
     protected Product(){}
 

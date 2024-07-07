@@ -1,8 +1,6 @@
 package za.ac.cput.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -12,6 +10,7 @@ import java.util.Objects;
 public class Coupon {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long couponId;
     private String code;
     private double discountAmount;

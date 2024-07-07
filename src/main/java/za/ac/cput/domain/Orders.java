@@ -1,24 +1,28 @@
 package za.ac.cput.domain;
 
-
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Orders {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long orderId;
     private double amount;
     private LocalDate orderDate;
     private String status;
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne //(cascade = CascadeType.ALL)
     @JoinColumn(name = "CUSTOMER_ID")
     private Customer customer;
     @ManyToOne //(cascade = CascadeType.ALL)
     @JoinColumn(name = "COUPON_ID")
     private Coupon coupon;
+    @OneToMany(mappedBy = "orders")
+    private List<OrderLine> orderLines;
 
     protected Orders(){}
 
@@ -55,6 +59,18 @@ public class Orders {
         return coupon;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Orders orders = (Orders) o;
+        return orderId == orders.orderId && Double.compare(amount, orders.amount) == 0 && Objects.equals(orderDate, orders.orderDate) && Objects.equals(status, orders.status) && Objects.equals(customer, orders.customer) && Objects.equals(coupon, orders.coupon);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(orderId, amount, orderDate, status, customer, coupon);
+    }
 
     @Override
     public String toString() {

@@ -10,8 +10,10 @@ import java.util.Objects;
 public class Customer {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "CUS_ID")
     private long customerId;
+    @Column(name = "CUS_FNAME", nullable = false)
     private String firstName;
     private String lastName;
     private String password;
@@ -22,6 +24,8 @@ public class Customer {
     private List<Address> addresses;
     @OneToMany(mappedBy = "customer")
     private List<Orders> orders;
+    @OneToMany(mappedBy = "customer")
+    private List<Review> reviews;
 
     protected Customer(){}
 
