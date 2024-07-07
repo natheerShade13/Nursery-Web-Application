@@ -1,11 +1,8 @@
 package za.ac.cput.domain;
 
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,15 +10,18 @@ import java.util.Objects;
 public class Customer {
 
     @Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long customerId;
     private String firstName;
     private String lastName;
     private String password;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     @Embedded
     private Contact contact;
     @OneToMany(mappedBy = "customer")
     private List<Address> addresses;
+    @OneToMany(mappedBy = "customer")
+    private List<Orders> orders;
 
     protected Customer(){}
 
@@ -50,7 +50,7 @@ public class Customer {
         return password;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -88,7 +88,7 @@ public class Customer {
         private String firstName;
         private String lastName;
         private String password;
-        private Date dateOfBirth;
+        private LocalDate dateOfBirth;
         private Contact contact;
 
         public Builder setCustomerId(long customerId) {
@@ -111,7 +111,7 @@ public class Customer {
             return this;
         }
 
-        public Builder setDateOfBirth(Date dateOfBirth) {
+        public Builder setDateOfBirth(LocalDate dateOfBirth) {
             this.dateOfBirth = dateOfBirth;
             return this;
         }

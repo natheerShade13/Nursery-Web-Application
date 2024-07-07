@@ -1,9 +1,6 @@
 package za.ac.cput.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -11,14 +8,16 @@ import java.util.Objects;
 public class Address {
 
     @Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long addressId;
     private String streetNumber;
     private String streetName;
     private String suburb;
     private String postalCode;
     private String city;
+    //@Id
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "CUSTOMER_ID")
     private Customer customer;
 
     protected Address(){}
