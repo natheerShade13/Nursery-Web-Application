@@ -1,7 +1,11 @@
 package za.ac.cput.util;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.UUID;
 import java.util.regex.Pattern;
+
+//Is valid imageURL needs to be checked
 
 public class CustomerHelper {
 
@@ -33,7 +37,7 @@ public class CustomerHelper {
         return false;
     }
 
-    public static boolean checkNumbers(String c){
+    public static boolean checkNumber(String c){
 
         String regex = "(\\+?27|0)(\\d{9})";
         if (c.matches(regex)) {
@@ -41,6 +45,27 @@ public class CustomerHelper {
         }
 
         return true;
+    }
+
+    public static boolean isNull(Date date){
+        if (date == null)
+            return true;
+        return false;
+    }
+
+    public static boolean isNull(LocalDate localDate){
+        if (localDate == null)
+            return true;
+        return false;
+    }
+
+    public static boolean isValidImageUrl(String url) {
+        if (url == null || url.isBlank()) {
+            return false;
+        }
+
+        String regex = "^(http|https)://.*";
+        return Pattern.matches(regex, url);
     }
 
     public static boolean validateEmail(String d){

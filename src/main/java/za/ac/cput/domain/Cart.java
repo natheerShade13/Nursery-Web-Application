@@ -2,6 +2,7 @@ package za.ac.cput.domain;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +14,8 @@ public class Cart {
     @OneToOne
     @JoinColumn(name = "CUS_ID")
     private Customer customer;
+    @OneToMany(mappedBy = "cart")
+    private List<CartProduct> cartProducts;
 
     protected Cart(){}
 

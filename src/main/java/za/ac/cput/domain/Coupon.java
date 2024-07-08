@@ -18,6 +18,7 @@ public class Coupon {
     private double minimumOrderAmount;
     @OneToMany(mappedBy = "coupon")
     private List<Orders> orders;
+    // Add isUsed boolean variable
 
     protected Coupon(){}
 

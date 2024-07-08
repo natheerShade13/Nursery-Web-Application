@@ -15,15 +15,17 @@ public class Product {
     private double price;
     private String imageUrl;
     private int stockQuantity;
-    @ManyToOne
-    @JoinColumn(name = "CATEGORY_ID")
-    private Category category;
+    //@ManyToOne
+    //@JoinColumn(name = "CATEGORY_ID")
+    private String category;
     @OneToMany(mappedBy = "product")
     private List<OrderLine> orderLines;
     @OneToMany(mappedBy = "product" /*, cascade = CascadeType.PERSIST*/)
     private List<SupplierProduct> supplierProducts;
     @OneToMany(mappedBy = "product")
     private List<Review> reviews;
+    @OneToMany(mappedBy = "product")
+    private List<CartProduct> cartProducts;
 
     protected Product(){}
 
@@ -61,7 +63,7 @@ public class Product {
         return imageUrl;
     }
 
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
 
@@ -99,7 +101,7 @@ public class Product {
         private double price;
         private String imageUrl;
         private int stockQuantity;
-        private Category category;
+        private String category;
 
         public Builder setProductId(long productId) {
             this.productId = productId;
@@ -131,7 +133,7 @@ public class Product {
             return this;
         }
 
-        public Builder setCategory(Category category) {
+        public Builder setCategory(String category) {
             this.category = category;
             return this;
         }

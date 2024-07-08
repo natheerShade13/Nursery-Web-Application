@@ -19,7 +19,7 @@ public class Orders {
     @JoinColumn(name = "CUSTOMER_ID")
     private Customer customer;
     @ManyToOne //(cascade = CascadeType.ALL)
-    @JoinColumn(name = "COUPON_ID")
+    @JoinColumn(name = "COUPON_ID", nullable = true)
     private Coupon coupon;
     @OneToMany(mappedBy = "orders")
     private List<OrderLine> orderLines;

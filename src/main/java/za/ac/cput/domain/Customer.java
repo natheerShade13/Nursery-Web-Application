@@ -6,11 +6,13 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+//Must add Auto Generate Id, Cascade, Column names and nullable to all entities;
+
 @Entity
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CUS_ID")
     private long customerId;
     @Column(name = "CUS_FNAME", nullable = false)
