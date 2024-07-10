@@ -6,7 +6,9 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
-//Must add Auto Generate Id, Cascade, Column names and nullable to all entities;
+//Must add Auto Generate Id, Cascade, Column names and nullable true/false to all entities;
+//What should the relationship be between Orders and Coupon;
+//Should supplier be a company name or individual name and surname, address as well???;
 
 @Entity
 public class Customer {

@@ -16,8 +16,8 @@ public class Coupon {
     private double discountAmount;
     private LocalDate expiryDate;
     private double minimumOrderAmount;
-    @OneToMany(mappedBy = "coupon")
-    private List<Orders> orders;
+    //@OneToMany(mappedBy = "coupon")
+    //private List<Orders> orders;
     // Add isUsed boolean variable
 
     protected Coupon(){}

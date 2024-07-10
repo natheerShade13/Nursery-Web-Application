@@ -27,7 +27,7 @@ class CustomerFactoryTest {
     @Test
     void buildCustomerFail() {
         contact = ContactFactory.buildContact("jake.long@gmail.com", "0677784626");
-        customerB = CustomerFactory.buildCustomer(0, "Jake", "Long"
+        customerB = CustomerFactory.buildCustomer(1, "", "Long"
                 , "jakeLong",LocalDate.of(2000, Month.JANUARY, 1), contact);
         assertNotNull(customerB);
         System.out.println(customerB);

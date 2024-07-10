@@ -10,7 +10,7 @@ public class Supplier {
 
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String supplierID;
+    private long supplierID;
     private String firstName;
     private String lastName;
     @Embedded
@@ -27,7 +27,7 @@ public class Supplier {
         this.contact = builder.contact;
     }
 
-    public String getSupplierID() {
+    public long getSupplierID() {
         return supplierID;
     }
 
@@ -67,12 +67,12 @@ public class Supplier {
     }
 
     public static class Builder {
-        private String supplierID;
+        private long supplierID;
         private String firstName;
         private String lastName;
         private Contact contact;
 
-        public Builder setSupplierID(String supplierID) {
+        public Builder setSupplierID(long supplierID) {
             this.supplierID = supplierID;
             return this;
         }
