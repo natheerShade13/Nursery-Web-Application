@@ -5,19 +5,20 @@ import java.util.Date;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
-//Is valid imageURL needs to be checked
+//Is valid imageURL needs to be checked;
+//Use only 1 Helper class for everything;
 
 public class CustomerHelper {
 
-    public static boolean isNullOrEmpty(String a){
-        if(a == null || a.isEmpty()){
+    public static boolean validId(long a){
+        if(a <= 0){
             return true;
         }
         return false;
     }
 
-    public static boolean validId(long a){
-        if(a <= 0){
+    public static boolean isNullOrEmpty(String a){
+        if(a == null || a.isEmpty()){
             return true;
         }
         return false;
@@ -37,16 +38,6 @@ public class CustomerHelper {
         return false;
     }
 
-    public static boolean checkNumber(String c){
-
-        String regex = "(\\+?27|0)(\\d{9})";
-        if (c.matches(regex)) {
-            return false;
-        }
-
-        return true;
-    }
-
     public static boolean isNull(Date date){
         if (date == null)
             return true;
@@ -57,6 +48,16 @@ public class CustomerHelper {
         if (localDate == null)
             return true;
         return false;
+    }
+
+    public static boolean checkNumber(String c){
+
+        String regex = "(\\+?27|0)(\\d{9})";
+        if (c.matches(regex)) {
+            return false;
+        }
+
+        return true;
     }
 
     public static boolean isValidImageUrl(String url) {

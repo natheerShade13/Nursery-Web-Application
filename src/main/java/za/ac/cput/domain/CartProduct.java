@@ -65,8 +65,8 @@ public class CartProduct {
     @Override
     public String toString() {
         return "CartProduct{" +
-                "cart=" + cart +
-                ", cartProductId=" + cartProductId +
+                "cartProductId=" + cartProductId +
+                ", cart=" + cart +
                 ", product=" + product +
                 ", quantity=" + quantity +
                 ", unitPrice=" + unitPrice +

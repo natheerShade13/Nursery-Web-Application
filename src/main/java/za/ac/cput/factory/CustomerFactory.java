@@ -7,7 +7,8 @@ import za.ac.cput.util.CustomerHelper;
 import java.time.LocalDate;
 
 //Create factory for auto generated Id;
-//Is valid imageURL needs to be checked
+//Is valid imageURL needs to be checked;
+//Consider values that allowed to be null;
 
 public class CustomerFactory {
 
