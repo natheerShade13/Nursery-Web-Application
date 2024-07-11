@@ -9,6 +9,7 @@ import java.util.Objects;
 //Must add Auto Generate Id, Cascade, Column names and nullable true/false to all entities;
 //What should the relationship be between Orders and Coupon;
 //Should supplier be a company name or individual name and surname, address as well???;
+//Check all entity attributes;
 
 @Entity
 public class Customer {

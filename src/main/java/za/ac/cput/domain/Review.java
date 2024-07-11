@@ -66,8 +66,8 @@ public class Review {
     @Override
     public String toString() {
         return "Review{" +
-                "comment='" + comment + '\'' +
-                ", reviewId=" + reviewId +
+                "reviewId=" + reviewId +
+                ", comment='" + comment + '\'' +
                 ", reviewDate=" + reviewDate +
                 ", product=" + product +
                 ", customer=" + customer +

@@ -66,8 +66,8 @@ public class Coupon {
     @Override
     public String toString() {
         return "Coupon{" +
-                "code='" + code + '\'' +
-                ", couponId=" + couponId +
+                "couponId=" + couponId +
+                ", code='" + code + '\'' +
                 ", discountAmount=" + discountAmount +
                 ", expiryDate=" + expiryDate +
                 ", minimumOrderAmount=" + minimumOrderAmount +

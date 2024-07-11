@@ -15,7 +15,7 @@ public class Supplier {
     private String lastName;
     @Embedded
     private Contact contact;
-    @OneToMany(mappedBy = "supplier"/*, cascade = CascadeType.ALL*/)
+    @OneToMany(mappedBy = "supplier") // cascade = CascadeType.ALL
     private List<SupplierProduct> supplierProducts;
 
     protected Supplier() {}
@@ -59,10 +59,10 @@ public class Supplier {
     @Override
     public String toString() {
         return "Supplier{" +
-                "contact=" + contact +
-                ", supplierID='" + supplierID + '\'' +
+                "supplierID=" + supplierID +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", contact=" + contact +
                 '}';
     }
 
