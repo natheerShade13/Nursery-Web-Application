@@ -13,6 +13,7 @@ import java.util.Objects;
 //What does cascading do?
 //Should Customer or Cart have the OneToOne mapping?
 //Remove Embedded?;
+//Coupon needs a boolean variable called isUsed;
 
 @Entity
 public class Customer {

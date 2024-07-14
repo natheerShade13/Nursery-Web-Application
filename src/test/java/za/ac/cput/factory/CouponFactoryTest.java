@@ -16,7 +16,7 @@ class CouponFactoryTest {
     @Test
     void buildCoupon() {
         couponA = CouponFactory.buildCoupon(1, "1234", 200
-                , LocalDate.of(2025, Month.APRIL, 25), 400);
+                , LocalDate.of(2025, Month.APRIL, 25), 200);
         assertNotNull(couponA);
         System.out.println(couponA);
     }
