@@ -5,8 +5,11 @@ import java.util.Date;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
-//Is valid imageURL needs to be checked;
+//IsValidImageURL needs to be checked;
 //Use only 1 Helper class for everything;
+//Change method names;
+//Only price that can be zero is orders due to a coupon;
+//Only products in stock can be zero;
 
 public class CustomerHelper {
 
@@ -33,6 +36,20 @@ public class CustomerHelper {
 
     public static boolean isNegative(int b){
         if(b < 0){
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isLessThanZero(int b){ //Quantity
+        if(b <= 0){
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isLessThanZero(double b){ //Price
+        if(b <= 0){
             return true;
         }
         return false;

@@ -16,8 +16,8 @@ public class CartProductHelper {
         return false;
     }
 
-    public static boolean isNegative(int b){
-        if(b < 0){
+    public static boolean isLessThanZero(int b){
+        if(b <= 0){
             return true;
         }
         return false;

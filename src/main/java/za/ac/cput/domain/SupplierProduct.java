@@ -10,7 +10,7 @@ public class SupplierProduct {
 
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String supplierProductId;
+    private long supplierProductId;
     @ManyToOne
     @JoinColumn(name = "SUPPLIER_ID")
     private Supplier supplier;
@@ -33,7 +33,7 @@ public class SupplierProduct {
         this.supplyDate = builder.supplyDate;
     }
 
-    public String getSupplierProductId() {
+    public long getSupplierProductId() {
         return supplierProductId;
     }
 
@@ -73,9 +73,9 @@ public class SupplierProduct {
     @Override
     public String toString() {
         return "SupplierProduct{" +
-                "product=" + product +
-                ", supplierProductId='" + supplierProductId + '\'' +
+                "supplierProductId=" + supplierProductId +
                 ", supplier=" + supplier +
+                ", product=" + product +
                 ", quantity=" + quantity +
                 ", supplyPrice=" + supplyPrice +
                 ", supplyDate=" + supplyDate +
@@ -84,14 +84,14 @@ public class SupplierProduct {
 
     public static class Builder {
 
-        private String supplierProductId;
+        private long supplierProductId;
         private Supplier supplier;
         private Product product;
         private int quantity;
         private double supplyPrice;
         private LocalDate supplyDate;
 
-        public Builder setSupplierProductId(String supplierProductId) {
+        public Builder setSupplierProductId(long supplierProductId) {
             this.supplierProductId = supplierProductId;
             return this;
         }

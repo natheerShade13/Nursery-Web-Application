@@ -10,7 +10,7 @@ public class CartProductFactory {
     public static CartProduct buildCartProduct(long cartProductId, Cart cart, Product product, int quantity
             , double unitPrice){
         if (CartProductHelper.validId(cartProductId) || cart == null || product == null
-                || CartProductHelper.isNegative(quantity) || CartProductHelper.isNegative(unitPrice)){
+                || CartProductHelper.isLessThanZero(quantity) || CartProductHelper.isNegative(unitPrice)){
             return null;
         }
 

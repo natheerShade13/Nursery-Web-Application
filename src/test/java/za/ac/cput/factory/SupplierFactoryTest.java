@@ -14,7 +14,7 @@ class SupplierFactoryTest {
 
     @Test
     void buildSupplier() {
-        contact = ContactFactory.buildContact("jake.long@gmail.com", "0677784626");
+        contact = ContactFactory.buildContact("Jack.Toys@gmail.com", "0677784626");
         supplierA = SupplierFactory.buildSupplier(1, "Jacks", "Toys", contact);
         assertNotNull(supplierA);
         System.out.println(supplierA);

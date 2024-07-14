@@ -1,18 +1,9 @@
 package za.ac.cput.util;
 
-import java.time.LocalDate;
-
-public class SupplierProductHelper {
+public class OrderLineHelper {
 
     public static boolean validId(long a){
         if(a <= 0){
-            return true;
-        }
-        return false;
-    }
-
-    public static boolean isNegative(double b){
-        if(b < 0){
             return true;
         }
         return false;
@@ -25,9 +16,10 @@ public class SupplierProductHelper {
         return false;
     }
 
-    public static boolean isNull(LocalDate localDate){
-        if (localDate == null)
+    public static boolean isNegative(double b){
+        if(b < 0){
             return true;
+        }
         return false;
     }
 

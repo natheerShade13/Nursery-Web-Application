@@ -7,9 +7,12 @@ import java.util.List;
 import java.util.Objects;
 
 //Must add Auto Generate Id, Cascade, Column names and nullable true/false to all entities;
-//What should the relationship be between Orders and Coupon;
-//Should supplier be a company name or individual name and surname, address as well???;
+//What should the relationship be between Orders and Coupon be?;
+//Should supplier be a company name or individual name and surname, is a address needed as well???;
 //Check all entity attributes;
+//What does cascading do?
+//Should Customer or Cart have the OneToOne mapping?
+//Remove Embedded?;
 
 @Entity
 public class Customer {

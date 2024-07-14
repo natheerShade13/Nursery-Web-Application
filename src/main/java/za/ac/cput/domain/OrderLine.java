@@ -26,7 +26,7 @@ public class OrderLine {
         this.orders = builder.orders;
         this.product = builder.product;
         this.quantity = builder.quantity;
-        this.quotedPrice = builder.unitPrice;
+        this.quotedPrice = builder.quotedPrice;
     }
 
     public long getOrderLineId() {
@@ -69,7 +69,7 @@ public class OrderLine {
                 ", orders=" + orders +
                 ", product=" + product +
                 ", quantity=" + quantity +
-                ", unitPrice=" + quotedPrice +
+                ", quotedPrice=" + quotedPrice +
                 '}';
     }
 
@@ -79,7 +79,7 @@ public class OrderLine {
         private Orders orders;
         private Product product;
         private int quantity;
-        private double unitPrice;
+        private double quotedPrice;
 
         public Builder setOrderLineId(long orderLineId) {
             this.orderLineId = orderLineId;
@@ -101,8 +101,8 @@ public class OrderLine {
             return this;
         }
 
-        public Builder setUnitPrice(double unitPrice) {
-            this.unitPrice = unitPrice;
+        public Builder setQuotedPrice(double quotedPrice) {
+            this.quotedPrice = quotedPrice;
             return this;
         }
 
@@ -111,7 +111,7 @@ public class OrderLine {
             this.orders = orderLine.orders;
             this.product = orderLine.product;
             this.quantity = orderLine.quantity;
-            this.unitPrice = orderLine.quotedPrice;
+            this.quotedPrice = orderLine.quotedPrice;
             return this;
         }
 
