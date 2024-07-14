@@ -8,12 +8,13 @@ import za.ac.cput.repository.CustomerRepository;
 import java.util.List;
 
 //Create API for calculating the orders amount - coupon discount;
+//No need to us ICustomerService;
 
 @Service
 public class CustomerService implements ICustomerService{
 
     @Autowired
-    private CustomerRepository customerRepository;
+    private final CustomerRepository customerRepository;
 
     public CustomerService(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
@@ -21,9 +22,9 @@ public class CustomerService implements ICustomerService{
 
     @Override
     public Customer create(Customer customer) {
-        if (customerRepository.existsById(customer.getCustomerId())){
-            throw new IllegalStateException("Customer with Id " + customer.getCustomerId() + " already exists");
-        }
+        //if (customerRepository.existsById(customer.getCustomerId())){
+        //    throw new IllegalStateException("Customer with Id " + customer.getCustomerId() + " already exists");
+        //}
         return customerRepository.save(customer);
     }
 

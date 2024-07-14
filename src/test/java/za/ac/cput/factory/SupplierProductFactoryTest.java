@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SupplierProductFactoryTest {
 
-    private Contact contact;
     private Supplier supplier;
     private Product product;
     private SupplierProduct supplierProductA;
@@ -21,8 +20,8 @@ class SupplierProductFactoryTest {
 
     @Test
     void buildSupplierProduct() {
-        contact = ContactFactory.buildContact("Jack.Toys@gmail.com", "0677784626");
-        supplier = SupplierFactory.buildSupplier(1, "Jacks", "Toys", contact);
+        supplier = SupplierFactory.buildSupplier(1, "Jacks", "Toys"
+                , "JacksToys@gmail.com", "0677784626");
         String imageUrl = "https://media.istockphoto.com/id/174655938/photo/rose-background.webp?s=1024x1024&w=is&k=20&c=pGDOZrqVKxiYK46Ts9bcGwmhXVFPpGaJ3NI4F_kUVgE=";
         product = ProductFactory.buildProduct(1, "Jalapeno", "Red hot jalapeno"
                 , 50, imageUrl, 5, "Plant");
@@ -34,8 +33,8 @@ class SupplierProductFactoryTest {
 
     @Test
     void buildSupplierProductFail() {
-        contact = ContactFactory.buildContact("jake.long@gmail.com", "0677784626");
-        supplier = SupplierFactory.buildSupplier(1, "Jacks", "Toys", contact);
+        supplier = SupplierFactory.buildSupplier(1, "Jacks", "Toys"
+                , "JacksToys@gmail.com", "0677784626");
         String imageUrl = "https://media.istockphoto.com/id/174655938/photo/rose-background.webp?s=1024x1024&w=is&k=20&c=pGDOZrqVKxiYK46Ts9bcGwmhXVFPpGaJ3NI4F_kUVgE=";
         product = ProductFactory.buildProduct(1, "Jalapeno", "Red hot jalapeno"
                 , 50, imageUrl, 5, "Plant");
