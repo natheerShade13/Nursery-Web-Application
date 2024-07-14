@@ -61,8 +61,8 @@ class CustomerServiceTest {
     }
 
     @Test
-    @Order(4)
-    @Disabled
+    @Order(5)
+    //@Disabled
     void delete() {
         boolean deleteCustomer = customerService.delete(customer.getCustomerId());
         assertTrue(deleteCustomer);
@@ -70,7 +70,7 @@ class CustomerServiceTest {
     }
 
     @Test
-    @Order(5)
+    @Order(4)
     void getAll() {
         System.out.println(customerService.getAll());
     }
