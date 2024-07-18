@@ -7,7 +7,7 @@ import za.ac.cput.repository.CustomerRepository;
 
 import java.util.List;
 
-//Create API for calculating the orders amount - coupon discount;
+//Create API for calculating the (orders amount - coupon discount);
 //When using create check for certain conditions;
 //Delete method might need changing;
 
