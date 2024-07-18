@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class OrderLineFactoryTest {
 
-    private Contact contact;
     private Customer customer;
     private Coupon coupon;
     private Orders orders;
@@ -21,9 +20,9 @@ class OrderLineFactoryTest {
 
     @Test
     void buildOrderLine() {
-        contact = ContactFactory.buildContact("jake.long@gmail.com", "0677784626");
         customer = CustomerFactory.buildCustomer(1, "Jake", "Long"
-                , "jakeLong", LocalDate.of(2000, Month.JANUARY, 1), contact);
+                , "jake.long@gmail.com", "jakeLong", "0677784626"
+                , LocalDate.of(2000, Month.JANUARY, 1));
         coupon = CouponFactory.buildCoupon(1, "1234", 200
                 , LocalDate.of(2025, Month.APRIL, 25), 400);
         orders = OrdersFactory.buildOrder(1, 250
@@ -38,9 +37,9 @@ class OrderLineFactoryTest {
 
     @Test
     void buildOrderLineFail() {
-        contact = ContactFactory.buildContact("jake.long@gmail.com", "0677784626");
         customer = CustomerFactory.buildCustomer(1, "Jake", "Long"
-                , "jakeLong", LocalDate.of(2000, Month.JANUARY, 1), contact);
+                , "jake.long@gmail.com", "jakeLong", "0677784626"
+                , LocalDate.of(2000, Month.JANUARY, 1));
         coupon = CouponFactory.buildCoupon(1, "1234", 200
                 , LocalDate.of(2025, Month.APRIL, 25), 400);
         orders = OrdersFactory.buildOrder(1, 250

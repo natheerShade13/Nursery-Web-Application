@@ -12,16 +12,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CartFactoryTest {
 
-    private Contact contact;
     private Customer customer;
     private Cart cartA;
     private Cart cartB;
 
     @Test
     void buildCart() {
-        contact = ContactFactory.buildContact("jake.long@gmail.com", "0677784626");
         customer = CustomerFactory.buildCustomer(1, "Jake", "Long"
-                , "jakeLong", LocalDate.of(2000, Month.JANUARY, 1), contact);
+                , "jake.long@gmail.com", "jakeLong", "0677784626"
+                , LocalDate.of(2000, Month.JANUARY, 1));
         cartA = CartFactory.buildCart(1, customer);
         assertNotNull(cartA);
         System.out.println(cartA);
@@ -29,12 +28,12 @@ class CartFactoryTest {
 
     @Test
     void buildCartFail() {
-        contact = ContactFactory.buildContact("jake.long@gmail.com", "0677784626");
         customer = CustomerFactory.buildCustomer(1, "Jake", "Long"
-                , "jakeLong", LocalDate.of(2000, Month.JANUARY, 1), contact);
-        cartA = CartFactory.buildCart(-5, customer);
-        assertNotNull(cartA);
-        System.out.println(cartA);
+                , "jake.long@gmail.com", "jakeLong", "0677784626"
+                , LocalDate.of(2000, Month.JANUARY, 1));
+        cartB = CartFactory.buildCart(-5, customer);
+        assertNotNull(cartB);
+        System.out.println(cartB);
     }
 
 }

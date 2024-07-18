@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AddressFactoryTest {
 
-    private Contact contact;
     private Customer customer;
     private Customer customerNull;
     private Address addressA;
@@ -20,9 +19,9 @@ class AddressFactoryTest {
 
     @Test
     void buildAddress() {
-        contact = ContactFactory.buildContact("jake.long@gmail.com", "0677784626");
-        customer = CustomerFactory.buildCustomer(213654897, "Jake", "Long"
-                , "jakeLong", LocalDate.of(2000, Month.JANUARY, 1), contact);
+        customer = CustomerFactory.buildCustomer(1, "Jake", "Long"
+                , "jake.long@gmail.com", "jakeLong", "0677784626"
+                , LocalDate.of(2000, Month.JANUARY, 1));
         addressA = AddressFactory.buildAddress(1, "10", "Church street"
                 , "Strandfontein", "7798", "Cape Town", customer);
         assertNotNull(addressA);
@@ -31,9 +30,9 @@ class AddressFactoryTest {
 
     @Test
     void buildAddressFail() {
-        contact = ContactFactory.buildContact("jake.long@gmail.com", "0677784626");
-        customer = CustomerFactory.buildCustomer(213654897, "Jake", "Long"
-                , "jakeLong", LocalDate.of(2000, Month.JANUARY, 1), contact);
+        customer = CustomerFactory.buildCustomer(1, "Jake", "Long"
+                , "jake.long@gmail.com", "jakeLong", "0677784626"
+                , LocalDate.of(2000, Month.JANUARY, 1));
         addressB = AddressFactory.buildAddress(1, "10", "Church street"
                 , "Strandfontein", "7798", "Cape Town", customerNull);
         assertNotNull(addressB);

@@ -25,10 +25,12 @@ public class Customer {
     @Column(name = "CUS_FNAME", nullable = false)
     private String firstName;
     private String lastName;
+    private String email;
     private String password;
+    private String mobileNumber;
     private LocalDate dateOfBirth;
-    @Embedded
-    private Contact contact;
+    //@Embedded
+    //private Contact contact;
     @OneToMany(mappedBy = "customer")
     private List<Address> addresses;
     @OneToMany(mappedBy = "customer")
@@ -42,18 +44,17 @@ public class Customer {
         this.customerId = builder.customerId;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
+        this.email = builder.email;
         this.password = builder.password;
+        this.mobileNumber = builder.mobileNumber;
         this.dateOfBirth = builder.dateOfBirth;
-        this.contact = builder.contact;
     }
 
     public long getCustomerId() {
         return customerId;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
+    public String getFirstName() {return firstName;}
 
     public String getLastName() {
         return lastName;
@@ -67,21 +68,21 @@ public class Customer {
         return dateOfBirth;
     }
 
-    public Contact getContact() {
-        return contact;
-    }
+    public String getEmail() {return email;}
+
+    public String getMobileNumber() {return mobileNumber;}
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return customerId == customer.customerId && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(password, customer.password) && Objects.equals(dateOfBirth, customer.dateOfBirth) && Objects.equals(contact, customer.contact);
+        return customerId == customer.customerId && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(email, customer.email) && Objects.equals(password, customer.password) && Objects.equals(mobileNumber, customer.mobileNumber) && Objects.equals(dateOfBirth, customer.dateOfBirth);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(customerId, firstName, lastName, password, dateOfBirth, contact);
+        return Objects.hash(customerId, firstName, lastName, email, password, mobileNumber, dateOfBirth);
     }
 
     @Override
@@ -90,9 +91,10 @@ public class Customer {
                 "customerId=" + customerId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", date=" + dateOfBirth +
-                ", contact=" + contact +
+                ", mobileNumber='" + mobileNumber + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
                 '}';
     }
 
@@ -100,9 +102,10 @@ public class Customer {
         private long customerId;
         private String firstName;
         private String lastName;
+        private String email;
         private String password;
+        private String mobileNumber;
         private LocalDate dateOfBirth;
-        private Contact contact;
 
         public Builder setCustomerId(long customerId) {
             this.customerId = customerId;
@@ -129,8 +132,13 @@ public class Customer {
             return this;
         }
 
-        public Builder setContact(Contact contact) {
-            this.contact = contact;
+        public Builder setEmail(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public Builder setMobileNumber(String mobileNumber) {
+            this.mobileNumber = mobileNumber;
             return this;
         }
 
@@ -138,9 +146,10 @@ public class Customer {
             this.customerId = customer.customerId;
             this.firstName = customer.firstName;
             this.lastName = customer.lastName;
+            this.email = customer.email;
             this.password = customer.password;
+            this.mobileNumber = customer.mobileNumber;
             this.dateOfBirth = customer.dateOfBirth;
-            this.contact = customer.contact;
             return this;
         }
 

@@ -20,15 +20,14 @@ class CustomerServiceTest {
     @Autowired
     private CustomerService customerService;
 
-    private static Contact contact;
     private static Customer customer;
 
     @Test
     @Order(0)
     void setup(){
-        contact = ContactFactory.buildContact("jake.long@gmail.com", "0677784626");
         customer = CustomerFactory.buildCustomer(1, "Jake", "Long"
-                , "jakeLong",LocalDate.of(2000, Month.JANUARY, 1), contact);
+                , "jake.long@gmail.com", "jakeLong", "0677784626"
+                , LocalDate.of(2000, Month.JANUARY, 1));
     }
 
     @Test
@@ -50,11 +49,8 @@ class CustomerServiceTest {
     @Test
     @Order(3)
     void update() {
-        Contact newContact = new Contact.Builder().copy(contact).setEmail("madara.uchicha@gmail.com").build();
-        assertNotNull(newContact);
-        System.out.println(newContact);
         Customer newCustomer = new Customer.Builder().copy(customer).setFirstName("Madara").setLastName("Uchiha")
-                .setPassword("madaraUchiha").setContact(newContact).build();
+                .setPassword("madaraUchiha").build();
         assertNotNull(newCustomer);
         Customer updateCustomer = customerService.update(newCustomer);
         System.out.println(updateCustomer);
@@ -62,7 +58,7 @@ class CustomerServiceTest {
 
     @Test
     @Order(5)
-    //@Disabled
+    @Disabled
     void delete() {
         boolean deleteCustomer = customerService.delete(customer.getCustomerId());
         assertTrue(deleteCustomer);

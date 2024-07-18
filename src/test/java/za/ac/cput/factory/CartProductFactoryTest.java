@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CartProductFactoryTest {
 
-    private Contact contact;
     private Customer customer;
     private Cart cart;
     private Product product;
@@ -19,9 +18,9 @@ class CartProductFactoryTest {
 
     @Test
     void buildCartProduct() {
-        contact = ContactFactory.buildContact("jake.long@gmail.com", "0677784626");
         customer = CustomerFactory.buildCustomer(1, "Jake", "Long"
-                , "jakeLong", LocalDate.of(2000, Month.JANUARY, 1), contact);
+                , "jake.long@gmail.com", "jakeLong", "0677784626"
+                , LocalDate.of(2000, Month.JANUARY, 1));
         cart = CartFactory.buildCart(1, customer);
         String imageUrl = "https://media.istockphoto.com/id/174655938/photo/rose-background.webp?s=1024x1024&w=is&k=20&c=pGDOZrqVKxiYK46Ts9bcGwmhXVFPpGaJ3NI4F_kUVgE=";
         product = ProductFactory.buildProduct(1, "Jalapeno", "Red hot jalapeno"
@@ -33,9 +32,9 @@ class CartProductFactoryTest {
 
     @Test
     void buildCartProductFail() {
-        contact = ContactFactory.buildContact("jake.long@gmail.com", "0677784626");
         customer = CustomerFactory.buildCustomer(1, "Jake", "Long"
-                , "jakeLong", LocalDate.of(2000, Month.JANUARY, 1), contact);
+                , "jake.long@gmail.com", "jakeLong", "0677784626"
+                , LocalDate.of(2000, Month.JANUARY, 1));
         cart = CartFactory.buildCart(1, customer);
         String imageUrl = "https://media.istockphoto.com/id/174655938/photo/rose-background.webp?s=1024x1024&w=is&k=20&c=pGDOZrqVKxiYK46Ts9bcGwmhXVFPpGaJ3NI4F_kUVgE=";
         product = ProductFactory.buildProduct(1, "Jalapeno", "Red hot jalapeno"
