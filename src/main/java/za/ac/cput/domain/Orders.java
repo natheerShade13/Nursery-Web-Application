@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Orders {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long orderId;
     private double amount;
     private LocalDate orderDate;

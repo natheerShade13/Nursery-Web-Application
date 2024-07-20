@@ -25,6 +25,7 @@ public class Customer {
     @Column(name = "CUS_FNAME", nullable = false)
     private String firstName;
     private String lastName;
+    //@Column(unique = true)
     private String email;
     private String password;
     private String mobileNumber;

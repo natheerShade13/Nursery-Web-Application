@@ -6,6 +6,7 @@ import za.ac.cput.domain.Customer;
 import za.ac.cput.repository.CustomerRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 //Create API for calculating the (orders amount - coupon discount);
 //When using create check for certain conditions;
@@ -23,9 +24,19 @@ public class CustomerService implements IService<Customer, Long>{
 
     @Override
     public Customer create(Customer customer) {
+
         //if (customerRepository.existsById(customer.getCustomerId())){
         //    throw new IllegalStateException("Customer with Id " + customer.getCustomerId() + " already exists");
         //}
+
+        /* Not using the following for now, cause it makes the testing a bit difficult due to the amount of
+        foreign keys customer belongs to. This works though.
+
+        Optional<Customer> findCustomer = customerRepository.findByEmail(customer.getEmail());
+        if(findCustomer.isPresent()){
+            throw new IllegalStateException("Email already taken.");
+        }
+         */
         return customerRepository.save(customer);
     }
 

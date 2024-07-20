@@ -52,9 +52,9 @@ class AddressServiceTest {
     @Test
     @Order(2)
     void read() {
-        Address readAddress = addressService.read(address.getAddressId());
-        assertNotNull(readAddress);
-        System.out.println(readAddress);
+        Address findAddress = addressService.read(address.getAddressId());
+        assertNotNull(findAddress);
+        System.out.println(findAddress);
     }
 
     @Test

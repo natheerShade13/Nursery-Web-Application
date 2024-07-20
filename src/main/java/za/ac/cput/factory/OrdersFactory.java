@@ -12,7 +12,7 @@ public class OrdersFactory {
     public static Orders buildOrder(long ordersId, double amount, LocalDate orderDate, String status
             , Customer customer, Coupon coupon){
         if (OrdersHelper.validId(ordersId) || OrdersHelper.isNegative(amount) || OrdersHelper.isNull(orderDate)
-                || OrdersHelper.isNullOrEmpty(status) || customer == null || coupon == null){
+                || OrdersHelper.isNullOrEmpty(status) || customer == null /*|| coupon == null */){
             return null;
         }
 
