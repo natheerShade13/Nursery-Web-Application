@@ -6,12 +6,12 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
-//Must add Auto Generate Id, Cascade, Column names and nullable true/false to all entities;
+//Must add Auto Generate ID, Cascade, Column names and nullable true/false to all entities;
 //What should the relationship be between Orders and Coupon be?;
-//Should supplier be a company name or individual name and surname, is a address needed as well???;
+//Should supplier be a company name or individual name and surname, is an address needed as well???;
 //Check all entity attributes;
-//What does cascading do?
-//Should Customer or Cart have the OneToOne mapping?
+//What does cascading do?;
+//Should Customer or Cart have the OneToOne mapping?;
 //Remove Embedded?;
 //Coupon needs a boolean variable called isUsed;
 
