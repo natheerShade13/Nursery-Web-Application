@@ -52,4 +52,24 @@ public class OrdersService implements IService<Orders, Long>{
     public List<Orders> getAll() {
         return ordersRepository.findAll();
     }
+
+    public double calculateOrder(Orders orders){
+
+        if (orders.getCoupon() != null){
+        double cost = orders.getAmount();
+        double discount = orders.getCoupon().getDiscountAmount();
+
+        double finalPrice = cost- discount;
+
+        if (finalPrice < 0) {
+            return 0;
+        } else {
+            return finalPrice;
+        }
+        }
+        else {
+            return orders.getAmount();
+        }
+    }
+
 }

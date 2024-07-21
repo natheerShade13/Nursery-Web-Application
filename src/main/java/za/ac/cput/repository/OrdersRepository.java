@@ -6,4 +6,11 @@ import za.ac.cput.domain.Orders;
 
 @Repository
 public interface OrdersRepository extends JpaRepository<Orders, Long> {
+
+    //double findByAmount(double amount);
+
+    //double findByCoupon_DiscountAmount(double amount);
+
+    //
+
 }
