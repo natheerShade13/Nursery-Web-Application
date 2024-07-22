@@ -9,7 +9,7 @@ import java.util.Objects;
 public class Cart {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long cartId;
     @OneToOne
     @JoinColumn(name = "CUS_ID")
@@ -68,7 +68,7 @@ public class Cart {
             return this;
         }
 
-        public Builder build(Cart cart){
+        public Builder copy(Cart cart){
             this.cartId = cart.cartId;
             this.customer = cart.customer;
             return this;

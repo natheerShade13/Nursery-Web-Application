@@ -56,20 +56,17 @@ public class OrdersService implements IService<Orders, Long>{
     public double calculateOrder(Orders orders){
 
         if (orders.getCoupon() != null){
-        double cost = orders.getAmount();
-        double discount = orders.getCoupon().getDiscountAmount();
+            double cost = orders.getAmount();
+            double discount = orders.getCoupon().getDiscountAmount();
+            double finalPrice = cost- discount;
 
-        double finalPrice = cost- discount;
-
-        if (finalPrice < 0) {
-            return 0;
+            if (finalPrice < 0) {
+                return 0;
+            } else {
+                return finalPrice;
+            }
         } else {
-            return finalPrice;
-        }
-        }
-        else {
             return orders.getAmount();
         }
     }
-
 }

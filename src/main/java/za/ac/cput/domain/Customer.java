@@ -12,7 +12,8 @@ import java.util.Objects;
 //Check all entity attributes;
 //What does cascading do?;
 //Should Customer or Cart have the OneToOne mapping?;
-//Remove Embedded?;
+//Should Product have the foreign key instead of review?;
+//Remove Embedded Contact?;
 //Coupon needs a boolean variable called isUsed;
 
 @Entity
