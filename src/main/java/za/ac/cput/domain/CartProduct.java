@@ -8,7 +8,7 @@ import java.util.Objects;
 public class CartProduct {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long cartProductId;
     @ManyToOne
     @JoinColumn(name = "CART_ID")
@@ -102,7 +102,8 @@ public class CartProduct {
         }
 
         public Builder setUnitPrice(double unitPrice) {
-            this.unitPrice = unitPrice;
+            this.unitPrice = unitPrice; // product.getPrice() this sets the unit price to the value of the
+                                        // product price, will need to change factory also;
             return this;
         }
 

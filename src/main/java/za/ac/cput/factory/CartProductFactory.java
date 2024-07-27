@@ -16,7 +16,5 @@ public class CartProductFactory {
 
         return new CartProduct.Builder().setCartProductId(cartProductId).setCart(cart).setProduct(product)
                 .setQuantity(quantity).setUnitPrice(unitPrice).build();
-
     }
-
 }
