@@ -84,4 +84,10 @@ public class CustomerService implements IService<Customer, Long>{
     public List<Customer> getAll() {
         return customerRepository.findAll();
     }
+
+    public boolean verifyLogin(String email, String password){
+        Optional<Customer> verifyCustomer = customerRepository.findByEmailAndPassword(email, password);
+
+        return verifyCustomer.isPresent();
+    }
 }
