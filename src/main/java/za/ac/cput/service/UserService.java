@@ -6,6 +6,7 @@ import za.ac.cput.domain.User;
 import za.ac.cput.repository.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService implements IService<User, Long> {
@@ -29,6 +30,16 @@ public class UserService implements IService<User, Long> {
     @Override
     public User update(User user) {
         return repository.save(user);
+    }
+
+    public Optional<User> validateUser(String email, String password){
+        Optional<User> user = repository.findUserByEmail(email);
+
+        if(user.isPresent() && user.get().getPassword().equals(password))
+
+            return user;
+
+        return Optional.empty();
     }
 
     @Override
