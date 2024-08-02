@@ -3,6 +3,7 @@ package za.ac.cput.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.User;
+import za.ac.cput.factory.UserFactory;
 import za.ac.cput.repository.UserRepository;
 
 import java.util.List;
@@ -32,6 +33,16 @@ public class UserService implements IService<User, Long> {
         return repository.save(user);
     }
 
+
+    public void registerUser(User user) {
+        if (user != null) {
+            repository.save(user);
+        } else {
+            // Handle invalid user creation
+            throw new IllegalArgumentException("Invalid user details provided.");
+        }
+    }
+
     public Optional<User> validateUser(String email, String password){
         Optional<User> user = repository.findUserByEmail(email);
 
@@ -50,6 +61,14 @@ public class UserService implements IService<User, Long> {
         } else {
             throw new IllegalStateException("User with Id " + d + " does not exist");
         }
+    }
+    public boolean deleteUserByEmail(String email) {
+        User user = repository.findByEmail(email);
+        if (user != null) {
+            repository.delete(user);
+            return true;
+        }
+        return false;
     }
 
     @Override

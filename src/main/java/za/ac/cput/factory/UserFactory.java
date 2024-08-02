@@ -8,7 +8,7 @@ public class UserFactory {
     public static User buildUser(String firstName, String lastName, String password, String email, String phoneNumber) {
 
         if (UserHelper.isNullorEmpty(firstName) || UserHelper.isNullorEmpty(lastName) || UserHelper.isNullorEmpty(password) ||
-                UserHelper.isValidEmail(email) || UserHelper.isValidPhoneNumber(phoneNumber)) {
+                !UserHelper.isValidEmail(email) || !UserHelper.isValidPhoneNumber(phoneNumber)) {
             return null;
         }
         return new User.Builder().setFirstName(firstName).setLastName(lastName).setEmail(email).setPassword(password).
