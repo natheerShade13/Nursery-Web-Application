@@ -2,6 +2,7 @@ package za.ac.cput.domain;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
@@ -17,10 +18,10 @@ import java.util.Objects;
 //Coupon needs a boolean variable called isUsed;
 
 @Entity
-public class Customer {
+public class Customer implements Serializable {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CUS_ID")
     private long customerId;
     @Column(name = "CUS_FNAME", nullable = false)
@@ -30,6 +31,7 @@ public class Customer {
     private String email;
     private String password;
     private String mobileNumber;
+    //@Column(nullable = false)
     private LocalDate dateOfBirth;
     //@Embedded
     //private Contact contact;
