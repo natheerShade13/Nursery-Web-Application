@@ -33,7 +33,6 @@ public class SupplierProduct {
         this.price = builder.price;
         this.supplyDate = builder.supplyDate;
     }
-
     public long getSupplierProductId() {
         return supplierProductId;
     }

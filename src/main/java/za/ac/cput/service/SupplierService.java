@@ -3,9 +3,11 @@ package za.ac.cput.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Supplier;
+import za.ac.cput.domain.User;
 import za.ac.cput.repository.SupplierRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SupplierService implements IService<Supplier, Long>{
@@ -22,6 +24,7 @@ public class SupplierService implements IService<Supplier, Long>{
         return supplierRepository.save(supplier);
     }
 
+
     @Override
     public Supplier read(Long aLong) {
         return supplierRepository.findById(aLong).orElseThrow(()-> new IllegalStateException("Supplier with id "
@@ -30,11 +33,15 @@ public class SupplierService implements IService<Supplier, Long>{
 
     @Override
     public Supplier update(Supplier supplier) {
-        if (supplierRepository.existsById(supplier.getSupplierID())){
-            return supplierRepository.save(supplier);
-        } else{
-            throw new IllegalStateException("Supplier with id " + supplier.getSupplierID() + " does not exist");
-        }
+        return null;
+    }
+    public Optional<Supplier> validateSupplier(String email, String password){
+        Optional<Supplier> supplier = supplierRepository.findUserByEmail(email);
+
+        if(supplier.isPresent() && supplier.get().getPassword().equals(password))
+            return supplier;
+
+        return Optional.empty();
     }
 
     @Override

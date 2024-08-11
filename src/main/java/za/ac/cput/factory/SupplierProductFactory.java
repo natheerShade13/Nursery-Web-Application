@@ -8,16 +8,16 @@ import java.time.LocalDate;
 
 public class SupplierProductFactory {
 
-    public static SupplierProduct buildSupplierProduct(long supplierProductId, Supplier supplier, Product product
-            , int quantity, double supplyPrice, LocalDate supplyDate){
-        if (SupplierProductHelper.validId(supplierProductId) || supplier == null || product == null
-                || SupplierProductHelper.isLessThanZero(quantity) || SupplierProductHelper.isNegative(supplyPrice)
+    public static SupplierProduct buildSupplierProduct( Supplier supplier,
+            int quantity, double supplyPrice,String productName, LocalDate supplyDate, String productDescription,String imageUrl){
+        if ( supplier == null
+                || SupplierProductHelper.isLessThanZero(quantity) || !SupplierProductHelper.isValidPrice(supplyPrice)
                 || SupplierProductHelper.isNull(supplyDate)){
                     return null;
         }
 
-        return new SupplierProduct.Builder().setSupplierProductId(supplierProductId).setSupplier(supplier)
-                .setProduct(product).setQuantity(quantity).setSupplyPrice(supplyPrice).setSupplyDate(supplyDate)
+        return new SupplierProduct.Builder().setSupplier(supplier).setProductName(productName).setProductDescription(productDescription)
+                .setQuantity(quantity).setSupplyPrice(supplyPrice).setSupplyDate(supplyDate).setImageUrl(imageUrl)
                 .build();
     }
 

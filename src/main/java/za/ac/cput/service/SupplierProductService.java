@@ -10,9 +10,10 @@ import java.util.List;
 @Service
 public class SupplierProductService implements IService<SupplierProduct, Long>{
 
-    @Autowired
+
     private final SupplierProductRepository supplierProductRepository;
 
+    @Autowired
     public SupplierProductService(SupplierProductRepository supplierProductRepository) {
         this.supplierProductRepository = supplierProductRepository;
     }
