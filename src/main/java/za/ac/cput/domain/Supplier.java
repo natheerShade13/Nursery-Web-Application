@@ -9,26 +9,23 @@ import java.util.Objects;
 public class Supplier {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long supplierID;
     private String firstName;
     private String lastName;
     private String email;
     private String contactNumber;
-    //@Embedded
-    //private Contact contact;
+    private String password;
     @OneToMany(mappedBy = "supplier") // cascade = CascadeType.ALL
     private List<SupplierProduct> supplierProducts;
 
     protected Supplier() {}
 
     private Supplier(Builder builder) {
-        this.supplierID = builder.supplierID;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
         this.email = builder.email;
         this.contactNumber = builder.contactNumber;
-        //this.contact = builder.contact;
     }
 
     public long getSupplierID() {

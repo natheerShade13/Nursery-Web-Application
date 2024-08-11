@@ -9,7 +9,7 @@ import java.util.Objects;
 public class SupplierProduct {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long supplierProductId;
     @ManyToOne
     @JoinColumn(name = "SUPPLIER_ID")
