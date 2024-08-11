@@ -1,6 +1,5 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.domain.Product;
 import za.ac.cput.domain.Supplier;
 import za.ac.cput.domain.SupplierProduct;
 import za.ac.cput.util.SupplierProductHelper;

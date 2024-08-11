@@ -6,10 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import za.ac.cput.domain.Product;
 import za.ac.cput.domain.Supplier;
 import za.ac.cput.domain.SupplierProduct;
-import za.ac.cput.factory.ProductFactory;
 import za.ac.cput.factory.SupplierFactory;
 import za.ac.cput.factory.SupplierProductFactory;
 

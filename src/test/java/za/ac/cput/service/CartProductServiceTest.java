@@ -6,11 +6,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Cart;
 import za.ac.cput.domain.CartProduct;
 import za.ac.cput.domain.Customer;
-import za.ac.cput.domain.Product;
 import za.ac.cput.factory.CartFactory;
 import za.ac.cput.factory.CartProductFactory;
 import za.ac.cput.factory.CustomerFactory;
-import za.ac.cput.factory.ProductFactory;
 
 import java.time.LocalDate;
 import java.time.Month;

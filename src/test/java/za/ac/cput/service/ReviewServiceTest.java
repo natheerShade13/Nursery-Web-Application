@@ -7,10 +7,8 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Customer;
-import za.ac.cput.domain.Product;
 import za.ac.cput.domain.Review;
 import za.ac.cput.factory.CustomerFactory;
-import za.ac.cput.factory.ProductFactory;
 import za.ac.cput.factory.ReviewFactory;
 
 import java.time.LocalDate;

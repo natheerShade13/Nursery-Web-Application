@@ -2,7 +2,6 @@ package za.ac.cput.factory;
 
 import za.ac.cput.domain.Cart;
 import za.ac.cput.domain.CartProduct;
-import za.ac.cput.domain.Product;
 import za.ac.cput.util.CartProductHelper;
 
 public class CartProductFactory {

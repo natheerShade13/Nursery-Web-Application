@@ -26,11 +26,9 @@ public class Supplier {
         this.lastName = builder.lastName;
         this.email = builder.email;
         this.contactNumber = builder.contactNumber;
+        this.password = builder.password;
     }
 
-    public long getSupplierID() {
-        return supplierID;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -48,23 +46,7 @@ public class Supplier {
         return contactNumber;
     }
 
-    //public Contact getContact() {
-    //    return contact;
-    //}
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Supplier supplier = (Supplier) o;
-        return supplierID == supplier.supplierID && Objects.equals(firstName, supplier.firstName) && Objects.equals(lastName, supplier.lastName) && Objects.equals(email, supplier.email) && Objects.equals(contactNumber, supplier.contactNumber) && Objects.equals(supplierProducts, supplier.supplierProducts);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(supplierID, firstName, lastName, email, contactNumber, supplierProducts);
-    }
+    public String getPassword() {return password;}
 
     @Override
     public String toString() {
@@ -74,27 +56,37 @@ public class Supplier {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", contactNumber='" + contactNumber + '\'' +
+                ", password='" + password + '\'' +
+                ", supplierProducts=" + supplierProducts +
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Supplier supplier = (Supplier) o;
+        return supplierID == supplier.supplierID && Objects.equals(firstName, supplier.firstName) && Objects.equals(lastName, supplier.lastName) && Objects.equals(email, supplier.email) && Objects.equals(contactNumber, supplier.contactNumber) && Objects.equals(password, supplier.password) && Objects.equals(supplierProducts, supplier.supplierProducts);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(supplierID, firstName, lastName, email, contactNumber, password, supplierProducts);
+    }
+
     public static class Builder {
-        private long supplierID;
         private String firstName;
         private String lastName;
         private String email;
         private String contactNumber;
-        //private Contact contact;
+      private String password;
 
-        public Builder setSupplierID(long supplierID) {
-            this.supplierID = supplierID;
-            return this;
-        }
+
 
         public Builder setFirstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
-
         public Builder setLastName(String lastName) {
             this.lastName = lastName;
             return this;
@@ -110,18 +102,17 @@ public class Supplier {
             return this;
         }
 
-        //public Builder setContact(Contact contact) {
-        //    this.contact = contact;
-        //    return this;
-        //}
+        public Builder setPassword(String password) {
+            this.password = password;
+            return this;
+        }
 
         public Builder copy(Supplier supplier) {
-            this.supplierID = supplier.supplierID;
             this.firstName = supplier.firstName;
             this.lastName = supplier.lastName;
             this.email = supplier.email;
             this.contactNumber = supplier.contactNumber;
-            //this.contact = supplier.contact;
+            this.password = supplier.password;
             return this;
         }
 
