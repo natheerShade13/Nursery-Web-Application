@@ -7,17 +7,16 @@ import java.util.Objects;
 
 @Entity
 public class Supplier {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long supplierID;
+    private Long id;
     private String firstName;
     private String lastName;
     private String email;
-    private String contactNumber;
+    private String phoneNumber;
     private String password;
-    @OneToMany(mappedBy = "supplier") // cascade = CascadeType.ALL
-    private List<SupplierProduct> supplierProducts;
+//    @OneToMany(mappedBy = "supplier") // cascade = CascadeType.ALL
+//    private List<SupplierProduct> supplierProducts;
 
     protected Supplier() {}
 
@@ -25,60 +24,90 @@ public class Supplier {
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
         this.email = builder.email;
-        this.contactNumber = builder.contactNumber;
+        this.phoneNumber = builder.phoneNumber;
         this.password = builder.password;
     }
 
-
-    public String getFirstName() {
-        return firstName;
+    public String getPassword() {
+        return password;
     }
 
-    public String getLastName() {
-        return lastName;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public String getContactNumber() {
-        return contactNumber;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getPassword() {return password;}
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public Long getSupplierID() {
+        return id;
+    }
+
+    public void setSupplierID(Long supplierID) {
+        this.id = supplierID;
+    }
 
     @Override
     public String toString() {
         return "Supplier{" +
-                "supplierID=" + supplierID +
+                "supplierID=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", contactNumber='" + contactNumber + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", password='" + password + '\'' +
-                ", supplierProducts=" + supplierProducts +
+//                ", supplierProducts=" + supplierProducts +
                 '}';
     }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Supplier supplier = (Supplier) o;
-        return supplierID == supplier.supplierID && Objects.equals(firstName, supplier.firstName) && Objects.equals(lastName, supplier.lastName) && Objects.equals(email, supplier.email) && Objects.equals(contactNumber, supplier.contactNumber) && Objects.equals(password, supplier.password) && Objects.equals(supplierProducts, supplier.supplierProducts);
+        return Objects.equals(id, supplier.id) && Objects.equals(firstName, supplier.firstName) && Objects.equals(lastName, supplier.lastName) && Objects.equals(email, supplier.email) && Objects.equals(phoneNumber, supplier.phoneNumber) && Objects.equals(password, supplier.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(supplierID, firstName, lastName, email, contactNumber, password, supplierProducts);
+        return Objects.hash(id, firstName, lastName, email, phoneNumber, password);
     }
 
     public static class Builder {
         private String firstName;
         private String lastName;
         private String email;
-        private String contactNumber;
+        private String phoneNumber;
       private String password;
 
 
@@ -96,9 +125,8 @@ public class Supplier {
             this.email = email;
             return this;
         }
-
-        public Builder setContactNumber(String contactNumber) {
-            this.contactNumber = contactNumber;
+        public Builder setPhoneNumber(String phoneNumber) {
+            this.phoneNumber = phoneNumber;
             return this;
         }
 
@@ -111,7 +139,7 @@ public class Supplier {
             this.firstName = supplier.firstName;
             this.lastName = supplier.lastName;
             this.email = supplier.email;
-            this.contactNumber = supplier.contactNumber;
+            this.phoneNumber = supplier.phoneNumber;
             this.password = supplier.password;
             return this;
         }

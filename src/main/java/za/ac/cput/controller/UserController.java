@@ -24,6 +24,7 @@ public class UserController {
 
     @PostMapping("/register")
     public void registerUser(@RequestBody User request) {
+        System.out.println("Input Data: " + request.toString());
         // Use the factory method to create a User object
         User user = UserFactory.buildUser(
                 request.getFirstName(),

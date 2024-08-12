@@ -12,7 +12,7 @@ class CartProductFactoryTest {
 
     private Customer customer;
     private Cart cart;
-    private Product product;
+
     private CartProduct cartProductA;
     private CartProduct cartProductB;
 

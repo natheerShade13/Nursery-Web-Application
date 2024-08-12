@@ -14,9 +14,6 @@ public class Review {
     private String comment;
     private LocalDate reviewDate;
     @ManyToOne
-    @JoinColumn(name = "PRODUCT_ID")
-    private Product product;
-    @ManyToOne
     @JoinColumn(name = "CUS_ID")
     private Customer customer;
 
@@ -26,7 +23,6 @@ public class Review {
         this.reviewId = builder.reviewId;
         this.comment = builder.comment;
         this.reviewDate = builder.reviewDate;
-        this.product = builder.product;
         this.customer = builder.customer;
     }
 
@@ -42,9 +38,6 @@ public class Review {
         return reviewDate;
     }
 
-    public Product getProduct() {
-        return product;
-    }
 
     public Customer getCustomer() {
         return customer;
@@ -55,12 +48,12 @@ public class Review {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Review review = (Review) o;
-        return reviewId == review.reviewId && Objects.equals(comment, review.comment) && Objects.equals(reviewDate, review.reviewDate) && Objects.equals(product, review.product) && Objects.equals(customer, review.customer);
+        return reviewId == review.reviewId && Objects.equals(comment, review.comment) && Objects.equals(reviewDate, review.reviewDate)  && Objects.equals(customer, review.customer);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(reviewId, comment, reviewDate, product, customer);
+        return Objects.hash(reviewId, comment, reviewDate, customer);
     }
 
     @Override
@@ -69,7 +62,6 @@ public class Review {
                 "reviewId=" + reviewId +
                 ", comment='" + comment + '\'' +
                 ", reviewDate=" + reviewDate +
-                ", product=" + product +
                 ", customer=" + customer +
                 '}';
     }
@@ -79,7 +71,6 @@ public class Review {
         private long reviewId;
         private String comment;
         private LocalDate reviewDate;
-        private Product product;
         private Customer customer;
 
         public Builder setReviewId(long reviewId) {
@@ -97,10 +88,7 @@ public class Review {
             return this;
         }
 
-        public Builder setProduct(Product product) {
-            this.product = product;
-            return this;
-        }
+
 
         public Builder setCustomer(Customer customer) {
             this.customer = customer;
@@ -111,7 +99,6 @@ public class Review {
             this.reviewId = review.reviewId;
             this.comment = review.comment;
             this.reviewDate = review.reviewDate;
-            this.product = review.product;
             this.customer = review.customer;
             return this;
         }

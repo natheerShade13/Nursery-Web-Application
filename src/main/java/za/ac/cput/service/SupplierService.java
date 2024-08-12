@@ -12,18 +12,27 @@ import java.util.Optional;
 @Service
 public class SupplierService implements IService<Supplier, Long>{
 
-    @Autowired
-    private final SupplierRepository supplierRepository;
 
+    private final SupplierRepository supplierRepository;
+    @Autowired
     public SupplierService(SupplierRepository supplierRepository) {
         this.supplierRepository = supplierRepository;
     }
 
-    @Override
-    public Supplier create(Supplier supplier) {
-        return supplierRepository.save(supplier);
+    public void registerSupplier(Supplier supplier) {
+        if (supplier != null) {
+            supplierRepository.save(supplier);
+        } else {
+            // Handle invalid user creation
+            throw new IllegalArgumentException("Invalid Supplier details provided.");
+        }
     }
 
+
+    @Override
+    public Supplier create(Supplier supplier) {
+        return null;
+    }
 
     @Override
     public Supplier read(Long aLong) {
@@ -35,13 +44,11 @@ public class SupplierService implements IService<Supplier, Long>{
     public Supplier update(Supplier supplier) {
         return null;
     }
-    public Optional<Supplier> validateSupplier(String email, String password){
-        Optional<Supplier> supplier = supplierRepository.findUserByEmail(email);
-
-        if(supplier.isPresent() && supplier.get().getPassword().equals(password))
+    public Supplier validateSupplier(String email, String password){
+       Supplier supplier = supplierRepository.findSupplierByEmail(email);
+        if(supplier!=null && supplier.getPassword().equals(password))
             return supplier;
-
-        return Optional.empty();
+        return null;
     }
 
     @Override

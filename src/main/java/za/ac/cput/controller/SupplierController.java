@@ -10,49 +10,51 @@ import za.ac.cput.domain.Supplier;
 import za.ac.cput.dto.AuthenticateUser;
 import za.ac.cput.factory.SupplierFactory;
 import za.ac.cput.service.SupplierService;
-
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/supplier")
 public class SupplierController {
 
-    private SupplierService _supplierService;
+    private SupplierService supplierService;
+
     @Autowired
     public SupplierController(SupplierService supplierService) {
-        this._supplierService = supplierService;
+        this.supplierService = supplierService;
     }
 
     @PostMapping("/register")
     public void registerUser(@RequestBody Supplier request) {
+        System.out.println("Input Data: " + request.toString());
         // Use the factory method to create a User object
         Supplier supplier = SupplierFactory.buildSupplier(
                 request.getFirstName(),
                 request.getLastName(),
                 request.getPassword(),
                 request.getEmail(),
-                request.getContactNumber()
+                request.getPhoneNumber()
         );
 
+
         if (supplier != null) {
-            _supplierService.create(supplier);
+            supplierService.registerSupplier(supplier);
 
         } else {
             // Handle invalid user creation
-            throw new IllegalArgumentException("Invalid Supplier details provided.");
+            throw new IllegalArgumentException("Invalid Supplier details provided.meee");
         }
     }
 
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody AuthenticateUser authenticateUser){
-        Optional<Supplier> validateSupplier = _supplierService.validateSupplier(authenticateUser.getEmail(),authenticateUser.getPassword());
-        System.out.println(_supplierService.validateSupplier(authenticateUser.getEmail(), authenticateUser.getPassword())+"here bro");
-        if(validateSupplier.isPresent()) {
+    public ResponseEntity<?> login(@RequestBody AuthenticateUser authenticateUser) {
+        Supplier validateSupplier = supplierService.validateSupplier(authenticateUser.getEmail(), authenticateUser.getPassword());
+        System.out.println(validateSupplier + " here bro");
+        if (validateSupplier != null) {
             return ResponseEntity.ok("Login Successful");
-        }else {
+        } else {
             return ResponseEntity.status(401).body("Invalid email or password");
         }
-
     }
 }
+

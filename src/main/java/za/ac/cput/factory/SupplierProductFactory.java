@@ -5,11 +5,12 @@ import za.ac.cput.domain.SupplierProduct;
 import za.ac.cput.util.SupplierProductHelper;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class SupplierProductFactory {
 
-    public static SupplierProduct buildSupplierProduct( Supplier supplier,
-            int quantity, double supplyPrice,String productName, LocalDate supplyDate, String productDescription,String imageUrl){
+    public static SupplierProduct buildSupplierProduct(Supplier supplier,
+                                                       int quantity, double supplyPrice, String productName, LocalDate supplyDate, String productDescription, String imageUrl){
         if ( supplier == null
                 || SupplierProductHelper.isLessThanZero(quantity) || !SupplierProductHelper.isValidPrice(supplyPrice)
                 || SupplierProductHelper.isNull(supplyDate)){

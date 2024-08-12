@@ -6,15 +6,13 @@ import za.ac.cput.util.SupplierHelper;
 
 public class SupplierFactory {
 
-    public static Supplier buildSupplier(String firstName, String lastName, String email,String password
-            , String contactNumber){
-        if (SupplierHelper.isNullOrEmpty(firstName)
-                || SupplierHelper.isNullOrEmpty(lastName) || SupplierHelper.validateEmail(email)
-                || SupplierHelper.checkNumber(contactNumber)|| SupplierHelper.isNullOrEmpty(password)){
+    public static Supplier buildSupplier(String firstName, String lastName, String password, String email, String phoneNumber){
+
+        if (SupplierHelper.isNullorEmpty(firstName) || SupplierHelper.isNullorEmpty(lastName) || !SupplierHelper.isValidEmail(email)
+                || !SupplierHelper.isValidPhoneNumber(phoneNumber)|| SupplierHelper.isNullorEmpty(password)){
             return null;
         }
-
         return new Supplier.Builder().setFirstName(firstName).setLastName(lastName)
-                .setEmail(email).setContactNumber(contactNumber).setPassword(password).build();
+                .setEmail(email).setPhoneNumber(phoneNumber).setPassword(password).build();
     }
 }

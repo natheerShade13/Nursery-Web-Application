@@ -11,9 +11,9 @@ import java.util.Optional;
 
 @Service
 public class UserService implements IService<User, Long> {
-    @Autowired
-    private final UserRepository repository;
 
+    private final UserRepository repository;
+    @Autowired
     public UserService(UserRepository repository) {
         this.repository = repository;
     }

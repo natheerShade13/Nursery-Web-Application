@@ -6,14 +6,14 @@ import za.ac.cput.util.OrderLineHelper;
 
 public class OrderLineFactory {
 
-    public static OrderLine buildOrderLine(long orderLineOrder, Orders orders, Product product, int quantity
+    public static OrderLine buildOrderLine(long orderLineOrder, Orders orders, int quantity
             , double quotedPrice){
-        if(OrderLineHelper.validId(orderLineOrder) || orders == null || product == null
+        if(OrderLineHelper.validId(orderLineOrder) || orders == null
                 || OrderLineHelper.isLessThanZero(quantity) || OrderLineHelper.isNegative(quotedPrice)){
             return null;
         }
 
-        return new OrderLine.Builder().setOrderLineId(orderLineOrder).setOrders(orders).setProduct(product)
+        return new OrderLine.Builder().setOrderLineId(orderLineOrder).setOrders(orders)
                 .setQuantity(quantity).setQuotedPrice(quotedPrice).build();
     }
 }

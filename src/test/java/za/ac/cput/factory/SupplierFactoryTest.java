@@ -13,7 +13,7 @@ class SupplierFactoryTest {
 
     @Test
     void buildSupplier() {
-        supplierA = SupplierFactory.buildSupplier(1, "Jacks", "Toys"
+        supplierA = SupplierFactory.buildSupplier("Manny", "Jacks", "Toys"
                 , "JacksToys@gmail.com", "0677784626");
         assertNotNull(supplierA);
         System.out.println(supplierA);
@@ -21,7 +21,7 @@ class SupplierFactoryTest {
 
     @Test
     void buildSupplierFail() {
-        supplierB = SupplierFactory.buildSupplier(1, "Jacks", "Toys"
+        supplierB = SupplierFactory.buildSupplier("Less", "Jacks", "Toys"
                 , "JacksToys", "0677784626");
         assertNotNull(supplierB);
         System.out.println(supplierB);

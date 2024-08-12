@@ -6,4 +6,5 @@ import za.ac.cput.domain.SupplierProduct;
 
 @Repository
 public interface SupplierProductRepository extends JpaRepository<SupplierProduct, Long> {
+
 }

@@ -6,14 +6,14 @@ import za.ac.cput.util.CartProductHelper;
 
 public class CartProductFactory {
 
-    public static CartProduct buildCartProduct(long cartProductId, Cart cart, Product product, int quantity
+    public static CartProduct buildCartProduct(long cartProductId, Cart cart, int quantity
             , double unitPrice){
-        if (CartProductHelper.validId(cartProductId) || cart == null || product == null
+        if (CartProductHelper.validId(cartProductId) || cart == null
                 || CartProductHelper.isLessThanZero(quantity) || CartProductHelper.isNegative(unitPrice)){
             return null;
         }
 
-        return new CartProduct.Builder().setCartProductId(cartProductId).setCart(cart).setProduct(product)
+        return new CartProduct.Builder().setCartProductId(cartProductId).setCart(cart)
                 .setQuantity(quantity).setUnitPrice(unitPrice).build();
     }
 }
